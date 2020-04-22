@@ -1,0 +1,42 @@
+{
+  "name": "src",
+  "version": "0.1.0",
+  "bin": {
+    "src": "bin/pipeline.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "nix-clean-deps": "rm -rf ./node_modules/*",
+    "nix-clean-cdk": "rm -rf ./cdk.out ./cdk.context.json",
+    "nix-clean-ts": "rm -rf ./**/*.js ./**/*.d.ts",
+    "nix-clean": "npm run -s nix-clean-cdk && npm run -s nix-clean-ts && npm run -s nix-clean-deps",
+    "win-clean-deps": "del /S .\\node_modules\\*",
+    "win-clean-cdk": "del .\\cdk.out .\\cdk.context.json",
+    "win-clean-ts": "del /S ..\\**\\*.js .\\**\\*.d.ts",
+    "win-clean": "npm run -s win-clean-cdk && npm run -s win-clean-ts && npm run -s win-clean-deps",
+    "cdk": "cdk",
+    "watch": "tsc -w",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "1.32.2",
+    "@types/jest": "^24.0.22",
+    "@types/node": "^10.17.5",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "aws-cdk": "1.32.2",
+    "ts-node": "^8.1.0",
+    "typescript": "~3.7.2"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-codebuild": "^1.32.2",
+    "@aws-cdk/aws-codecommit": "^1.32.2",
+    "@aws-cdk/aws-codepipeline": "^1.32.2",
+    "@aws-cdk/aws-codepipeline-actions": "^1.32.2",
+    "@aws-cdk/aws-s3": "^1.32.2",
+    "@aws-cdk/core": "1.32.2",
+    "dotenv": "^8.2.0",
+    "node": "^10.20.1",
+    "source-map-support": "^0.5.16"
+  }
+}
